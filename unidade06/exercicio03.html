@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Curso jQuery Fundamental</title>
+        
+        <style>
+			#janela { border:1px solid #666; width:200px; height:200px; margin-top:10px }
+		</style>
+        
+        <script src="jquery-3.2.1.min.js"></script>
+        <script>
+            /*function aplicarCorAzul() {
+                $('#janela').css("background-color","blue")
+            }
+            function aplicarCorVermelha() {
+                $('#janela').css("background-color","red")
+            }
+            function aplicarCorVerde() {
+                $('#janela').css("background-color","green")
+            }
+            $(function(e) {
+                $('#botaoazul').bind("click",aplicarCorAzul);
+                $('#botaovermelho').bind("click",aplicarCorVermelha);
+                $('#botaoverde').bind("click",aplicarCorVerde);
+            })*/
+            
+            
+            function aplicarCor(e) {
+                $cor = e.data.cor;
+                $largura = e.data.largura;
+                $('#janela').css("background-color",$cor);
+                $('#janela').css("width",$largura);
+            }
+            $(function(e) {
+                $('#botaoazul').bind("click", {cor:'blue',largura:'350px'} ,aplicarCor);
+                $('#botaovermelho').bind("click", {cor:'red',largura:'550px'} ,aplicarCor);
+                $('#botaoverde').bind("click", {cor:'green',largura:'350px'} ,aplicarCor);
+            })
+	 	</script>        
+    </head>
+    
+    
+
+    <body>
+    	<input type="submit" id="botaoazul" 	value="azul">
+        <input type="submit" id="botaovermelho" value="vermelho">
+        <input type="submit" id="botaoverde" 	value="verde">
+        
+        <div id="janela"></div>
+    </body>
+</html>
